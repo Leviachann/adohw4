@@ -1,0 +1,56 @@
+﻿<Window x:Class="TurboAzSimulator.ProductsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Products" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Filter Section -->
+        <GroupBox Header="Filters" Grid.Row="0" Margin="10">
+            <StackPanel>
+                <ComboBox x:Name="cmbBrand" Margin="5" Width="200" DisplayMemberPath="BrandName" SelectedValuePath="BrandName" SelectedIndex="0"/>
+                <CheckBox x:Name="chkNewCars" Content="New Cars" Margin="5"/>
+                <CheckBox x:Name="chkOldCars" Content="Old Cars" Margin="5"/>
+                <ComboBox x:Name="cmbCarType" Margin="5" Width="200">
+                    <ComboBoxItem Content="Sedan"/>
+                    <ComboBoxItem Content="Jeep"/>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Mileage: " VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtMinMileage" Width="80" Margin="5"/>
+                    <TextBlock Text="to" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtMaxMileage" Width="80" Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Production Date: " VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpMinProductionDate" Width="120" Margin="5"/>
+                    <TextBlock Text="to" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpMaxProductionDate" Width="120" Margin="5"/>
+                </StackPanel>
+                <ComboBox x:Name="cmbColor" Margin="5" Width="200">
+                    <ComboBoxItem Content="Red"/>
+                    <ComboBoxItem Content="Blue"/>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Price: " VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtMinPrice" Width="80" Margin="5"/>
+                    <TextBlock Text="to" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtMaxPrice" Width="80" Margin="5"/>
+                </StackPanel>
+                <ComboBox x:Name="cmbFuelType" Margin="5" Width="200">
+                    <ComboBoxItem Content="Gasoline"/>
+                    <ComboBoxItem Content="Diesel"/>
+                    <!-- Add more fuel types as needed -->
+                </ComboBox>
+                <Button x:Name="btnShow" Content="Show" Width="80" HorizontalAlignment="Right" Margin="5" Click="btnShow_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Filtered Products" Grid.Row="1" Margin="10">
+            <DataGrid x:Name="dgProducts" AutoGenerateColumns="True"/>
+        </GroupBox>
+    </Grid>
+</Window>
